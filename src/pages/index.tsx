@@ -38,9 +38,7 @@ interface HomeProps {
 
 export default function Home({ postsPagination }: HomeProps) {
   const [hasNextPage, setHasNextPage] = useState(postsPagination?.next_page);
-  const [posts, setPosts] = useState<Post[]>(
-    formatPosts(postsPagination.results) ?? []
-  );
+  const [posts, setPosts] = useState<Post[]>(formatPosts(postsPagination.results));
 
   function formatPosts(posts: Post[]) {
     return posts.map(post => {
@@ -114,7 +112,7 @@ export default function Home({ postsPagination }: HomeProps) {
               onClick={() => handleLoadMorePosts(postsPagination.next_page)}
             >
             Carregar mais posts
-          </button>}
+          </button> }
         </section>
       </main>
     </>
